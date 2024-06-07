@@ -1,9 +1,11 @@
 header
   a(href=`${siteUrl}/`).homeTitle
-    img(src=`${siteUrl}/images/SiteCraft.png`)
-    span #{siteName}
-nav.navigation
-  ul
-    for uri, page in pages
-      li
-        a(href=`${uri}`) #{page}
+    span #{siteName}.com
+  .searchZone
+    input(type='text', placeholder='Start typing any word of phrase')
+    .searchIcon: .icon search
+//- nav.navigation
+//-   ul
+//-     for uri, page in pages
+//-       li
+//-         a(href=`${uri}`) #{page}

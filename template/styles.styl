@@ -1,20 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
 
-primary = #F2994A
-secondary = #4EA9D0
-fill = #444654
-contrast = #e63946
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v192/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOejbd5zrDAt.woff2) format('woff2');
+}
+
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+primary = #006fe6
+secondary = #040f26
+fill = #fafafa
+contrast = #bed9ff
 white = #fafafa
 
 :root
   --primary: primary
   --fill: fill
-  --fillWhiten: lighten(fill, 20%)
-  --fillDarken: darken(fill, 30%)
-  --white: white
-  --whiteDarken: darken(white, 30%)
   --secondary: secondary
   --contrast: contrast
+  --lightContrast: lighten(primary, 90%)
 
 *:not(ul, ol, li)
   box-sizing: border-box
@@ -36,36 +57,6 @@ a
     color: var(--contrast)
 a, p.link
   transition: all 300ms linear
-
-header
-  position: relative
-  border-bottom: 1px solid var(--secondary)
-  background-color: #000
-  &:before
-    position: absolute
-    content: ""
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background: url($siteUrl + "/images/header.jpg") no-repeat center
-    background-size: cover
-    opacity: 0.3
-  .homeTitle
-    position: relative
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    height: 150px
-    img
-      width: 50px
-      height: 50px
-      margin-bottom: 5px
-    span
-      font-size: 2em
-      font-weight: 700
-      letter-spacing: 1px
 
 nav.navigation
   position: -webkit-sticky
@@ -181,4 +172,5 @@ h2
   tag#tag
     color var(--secondary)
 
+@import "header.styl"
 @import "blogList.styl"
