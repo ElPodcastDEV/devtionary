@@ -1,0 +1,9 @@
+siteName: Devtionary
+siteDesc: Devtionary para cuando no sabes que dice tu dev
+author:
+  name: Zero
+  site: https://floresbenavides.com buy me a coffe
+siteUrl: https://devtionary.com
+cname: devtionary.com
+pages:  # this node is optional
+  Home: /

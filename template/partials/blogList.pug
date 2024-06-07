@@ -1,0 +1,16 @@
+.blogList
+  each post in posts
+    - var date = post.meta.date
+    - var options = { year: 'numeric', month: 'short', day: 'numeric' }
+    .card(
+      style=`background-image: url(${siteUrl}/${post.meta.image})`,
+      class=`${(post.meta.tags || []).join(' ')}`
+    )
+      .blogContent
+        h3.title
+          p.postTitle #{post.meta.title}
+        p.excerpt #{post.meta.excerpt}
+        .cta
+          p.author by #{post.meta.author}
+          p.link Read more
+      a(href=`${siteUrl}/posts/${post.path}`).megaLink

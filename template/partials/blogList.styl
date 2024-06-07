@@ -1,0 +1,74 @@
+.blogList
+  display: flex
+  flex-wrap: wrap
+  max-width: 100%
+  margin: 0
+
+  .card
+    height: 300px
+    margin: 10px
+    padding: 20px
+    box-sizing: border-box
+    transition: background-color 0.3s ease-in-out
+    border-radius: 10px
+    background-size: cover
+    background-position: center
+    display: flex
+    align-items: flex-end
+    position: relative
+    &:hover p.link
+      text-decoration: underline
+      color: var(--contrast)
+
+  .blogContent
+    padding: 10px
+    background-color: rgba(fill, 0.9)
+    border-radius: 10px
+    width: 100%
+
+  .author
+    font-size: 14px
+    font-weight: bold
+    color: var(--primary)
+
+  .title, .cta
+    display: flex
+    align-items: flex-start;
+    justify-content: space-between;
+  
+  .postTitle
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+  .excerpt
+    color: var(--whiteDarken)
+    margin-bottom :10px
+
+  .date
+    font-size: 12px
+    color: var(--primary)
+    text-align: right
+
+  p.link
+    text-decoration: none
+    font-weight: bold
+    color: var(--secondary)
+
+  a.megaLink
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    width: 100%
+    height: 100%
+
+  @media (max-width: 600px)
+    .card
+      flex: 1 0 calc(100% - 20px)  // Single column
+  @media (min-width: 601px) and (max-width: 800px)
+    .card
+      flex: 1 0 calc(50% - 20px)  // Two columns
+  @media (min-width: 801px)
+    .card
+      flex: 1 0 calc((100% / 3) - 20px)  // three columns

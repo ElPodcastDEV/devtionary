@@ -1,0 +1,67 @@
+if comments.id
+  h2 Comments
+  span
+    |Reply to 
+    a(href=`https://${comments.server}/@${comments.user}/${comments.id}`) this post in mastodon
+    |  to appear here (non-private responses only)
+    br
+  #comments
+  #template.comment
+    .avatar: img
+    .commentText
+      span.author: a
+      .timestamp
+      .text
+      .favs
+
+        
+  script(type='text/javascript').
+    const inserEmoji = (text, emojis = []) => {
+      let nText = text
+      emojis.forEach(emoji => {
+        const img = document.createElement('img')
+        img.src = emoji.url
+        img.alt = emoji.shortcode
+        img.title = emoji.shortcode
+        nText = nText.replace(`:${emoji.shortcode}:`, img.outerHTML)
+      })
+      return nText
+    }
+    const getComments = async () => {
+      const postId = '!{comments.id}'
+      const url = 'https://!{comments.server}/api/v1/statuses/!{comments.id}/context'
+      const comments = document.getElementById('comments')
+      comments.innerHTML = 'Loading...'
+      const data = (await (await fetch(url)).json()).descendants
+      comments.innerHTML = ''
+      const holder = document.getElementById('comments')
+      data.forEach(comment => {
+        const template = document.getElementById('template').cloneNode(true)
+        template.removeAttribute('id')
+        const $ = q => template.querySelector(q)
+        if (comment.in_reply_to_id !== postId) template.className = 'comment indent'
+        const image = $('.avatar img').src = comment.account.avatar
+        const authorName = comment.account.display_name || comment.account.username
+        $('span.author a').innerHTML = inserEmoji(authorName, comment.account.emojis)
+        $('span.author a').href = comment.account.url
+        $('.timestamp').innerHTML = new Date( comment.created_at ).toLocaleString('en-US', {
+          dateStyle: "long",
+          timeStyle: "short",
+        })
+        $('.commentText .text').innerHTML = inserEmoji(comment.content, comment.emojis)
+        if (comment.favourites_count > 0) $('.favs').innerHTML = `⭐ ${comment.favourites_count}`
+        holder.appendChild(template)
+      })
+    }
+    getComments()
+  style.
+    #template { display: none; }
+    .comment { display: flex; margin-bottom: 10px; }
+    .comment.indent { margin-left: 30px; }
+    .comment .avatar img { max-width: 50px; max-height: 50px; }
+    .comment img { display: inline; }
+    .comment .author img { max-width: 15px; max-height: 15px; }
+    .comment .text img { max-width: 20px; max-height: 20px; }
+    .comment .commentText { padding-left: 10px; }
+    .comment .commentText .text { margin-top: 10px; }
+    .comment .timestamp, .comment .favs { font-size: 80%; }

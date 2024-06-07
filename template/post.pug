@@ -1,0 +1,27 @@
+head
+  include partials/headMeta.pug
+
+body
+  include partials/header.pug
+  .content
+    |!{pageData}
+    .postTags
+      if tags
+        for tag in tags
+          a(href=`${siteUrl}/posts?tag=${tag}`) !{tag}
+
+    include plugins/comments.pug
+
+    h2 Other entries
+    .navigator
+      if next.path
+        a(href=`${siteUrl}/posts/${next.path}`) &laquo; #{next.title}
+      else
+        span
+
+      if prev.path
+        a(href=`${siteUrl}/posts/${prev.path}`) #{prev.title} &raquo;
+      else
+        span
+
+  include partials/footer.pug

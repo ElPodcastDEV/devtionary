@@ -1,0 +1,30 @@
+title #{siteName}
+//- Required to render latin characters the right way
+meta(charset="UTF-8")
+
+//- This creates nice cards when you share this page in social media
+meta(name="description", content=`${siteDesc}`)
+meta(property="og:url", content=`${siteUrl}`)
+meta(property="og:type", content="website")
+meta(property="og:title", content=`${siteName}`)
+meta(property="og:description", content=`${siteDesc}`)
+meta(property="og:image", content=`${siteUrl}/images/header.jpg`)
+meta(name="twitter:card", content="summary_large_image")
+meta(property="twitter:domain", content=`${siteUrl}`)
+meta(property="twitter:url", content=`${siteUrl}`)
+meta(name="twitter:title", content=`${siteName}`)
+meta(name="twitter:description", content=`${siteDesc}`)
+meta(name="twitter:image", content=`${siteUrl}/images/header.jpg`)
+
+//- Favicons for all devices. Remember to add your favicons to template/favicons/
+link(rel="apple-touch-icon" sizes="180x180" href=`${siteUrl}/apple-touch-icon.png`)
+link(rel="icon" type="image/png" sizes="32x32" href=`${siteUrl}/favicon-32x32.png`)
+link(rel="icon" type="image/png" sizes="16x16" href=`${siteUrl}/favicon-16x16.png`)
+link(rel="manifest" href=`${siteUrl}/site.webmanifest`)
+link(rel="mask-icon" href=`${siteUrl}/safari-pinned-tab.svg` color="#5bbad5")
+meta(name="msapplication-TileColor" content="#00aba9")
+meta(name="theme-color" content="#ffffff")
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+//- Site style sheet
+link(rel="stylesheet", href=`${siteUrl}/styles.css`)

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+
+primary = #F2994A
+secondary = #4EA9D0
+fill = #444654
+contrast = #e63946
+white = #fafafa
+
+:root
+  --primary: primary
+  --fill: fill
+  --fillWhiten: lighten(fill, 20%)
+  --fillDarken: darken(fill, 30%)
+  --white: white
+  --whiteDarken: darken(white, 30%)
+  --secondary: secondary
+  --contrast: contrast
+
+*:not(ul, ol, li)
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  background-color: var(--fill)
+  color: var(--white)
+  font-family: 'Roboto', sans-serif
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+
+a
+  text-decoration: none
+  color: var(--secondary)
+  &:hover
+    color: var(--contrast)
+a, p.link
+  transition: all 300ms linear
+
+header
+  position: relative
+  border-bottom: 1px solid var(--secondary)
+  background-color: #000
+  &:before
+    position: absolute
+    content: ""
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: url($siteUrl + "/images/header.jpg") no-repeat center
+    background-size: cover
+    opacity: 0.3
+  .homeTitle
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 150px
+    img
+      width: 50px
+      height: 50px
+      margin-bottom: 5px
+    span
+      font-size: 2em
+      font-weight: 700
+      letter-spacing: 1px
+
+nav.navigation
+  position: -webkit-sticky
+  position: sticky
+  top: 0
+  height: 60px
+  ul, li 
+    margin: 0
+    padding: 0
+  ul
+    list-style: none
+    display: flex
+    align-items: flex-start
+    justify-content: center
+  a
+    display: inline-block
+    padding: 10px 0
+    margin: 0 6px
+    background-color: var(--contrast)
+    min-width: 100px
+    text-align: center
+    color: var(--white)
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+    &:hover
+      padding-top: 20px
+
+footer
+  border-top: 1px solid var(--secondary)
+  text-align: center
+  padding 20px 0
+  margin-top: auto
+
+h1
+  color: var(--primary)
+h2
+  color: var(--secondary)
+
+.content, .xml
+  max-width: 1200px
+  margin: 0 auto 20px auto
+  padding: 0 20px
+  display: flex
+  flex-direction: column
+  .navigator
+    display: flex
+    justify-content: space-between
+  & > *
+    display: block
+    margin: 5px 0
+  script, style
+    display: none
+  img
+    max-width: 100%
+    border-radius: 10px
+    display: block
+    margin: auto
+  h2
+    border-bottom: 2px solid var(--fillDarken)
+  p
+    line-height: 1.3em
+  p > code
+    background-color var(--fillWhiten)
+    padding: 2px 4px
+    border-radius: 4px
+  blockquote
+    position: relative
+    padding: 4px 20px
+    opacity: 0.5
+    &:before
+      position: absolute
+      content: ""
+      width: 3px
+      height: 100%
+      top: 0
+      left: 0
+      background-color: var(--primary)
+  pre
+    width: 100%
+    background-color: var(--fillDarken)
+    padding: 10px
+    margin: 0 auto
+    border-radius: 6px
+    overflow: auto
+    display: flex
+    line-height: 1.6em
+    code
+      font-size: 1.1em
+      max-width: 10px
+  .postTags
+    a
+      --tagBg: var(--secondary)
+      --tagFg: var(--white)
+      position: relative
+      background-color: var(--tagBg)
+      display: inline-block
+      padding: 2px 10px
+      margin: 0 7px
+      border-radius: 5px
+      color: var(--tagFg)
+      &:before
+        content: ""
+        position: absolute
+        top: -2px
+        left: 3px
+        height: 19px
+        width: 19px
+        transform-origin: top left
+        transform: rotate(45deg)
+        background: var(--tagBg)
+        border-radius: 5px
+        z-index: -1
+  tag#tag
+    color var(--secondary)
+
+@import "blogList.styl"
