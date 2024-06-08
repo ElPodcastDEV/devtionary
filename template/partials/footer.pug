@@ -1,2 +1,18 @@
 footer
-  |SiteCraft by #{author.name}: #{new Date().getFullYear()}
+  .browseZone
+    h2 Browse
+    ul
+      li: a(href=`${siteUrl}/?search=#`) #
+      for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        li: a(href=`${siteUrl}/?search=${letter}`) #{letter}#{letter.toLowerCase()}
+  .footer
+    p
+      a(href=`${siteUrl}/about`) About
+      |  | 
+      a(href=`${siteUrl}/contact`) Contact
+      |  | 
+      a(href=`${siteUrl}/privacy`) Privacy
+      |  | 
+      a(href=`${siteUrl}/terms`) Terms
+    br
+    p © #{new Date().getFullYear()} #{siteName}.com

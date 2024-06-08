@@ -36,6 +36,7 @@ white = #fafafa
   --secondary: secondary
   --contrast: contrast
   --lightContrast: lighten(primary, 90%)
+  --darkFill: darken(fill, 70%)
 
 *:not(ul, ol, li)
   box-sizing: border-box
@@ -83,12 +84,6 @@ nav.navigation
     border-bottom-right-radius: 6px
     &:hover
       padding-top: 20px
-
-footer
-  border-top: 1px solid var(--secondary)
-  text-align: center
-  padding 20px 0
-  margin-top: auto
 
 h1
   color: var(--primary)
@@ -172,5 +167,9 @@ h2
   tag#tag
     color var(--secondary)
 
+.contentData
+  width: calc(100vw - 40px)
+
 @import "header.styl"
 @import "blogList.styl"
+@import "footer.styl"
