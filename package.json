@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sitecraft": "file:../sitecraft"
+    "express": "^4.19.2",
+    "sitecraft": "file:../sitecraft",
+    "sqlito": "file:../sqlito"
   }
 }

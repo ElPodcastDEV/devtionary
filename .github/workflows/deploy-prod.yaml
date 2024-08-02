@@ -22,11 +22,11 @@ jobs:
     - name: Build site
       run: npx sitecraft build
 
-    - name: Deploy to VPS
+    - name: Deploy Public directory
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        source: public/*
-        target: /etc/www/devtionaty.com/public_html
+        source: /*
+        target: /etc/www/devtionaty.com/
